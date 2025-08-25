@@ -8,6 +8,16 @@ import * as Yup from 'yup';
 
 import AppContext from '../../context/app-context';
 
+const StyledErrorMessage = ({ children }) => (
+  <div style={{
+    fontSize: '0.875rem',
+    color: 'var(--error)',
+    marginTop: '0.25rem'
+  }}>
+    {children}
+  </div>
+);
+
 const validationSchema = Yup.object({
   email: Yup.string()
     .email('Your email address must be a valid email')
@@ -122,12 +132,7 @@ const SignUp = () => {
                 />
                 <ErrorMessage 
                   name="email" 
-                  component="div"
-                  style={{
-                    fontSize: '0.875rem',
-                    color: 'var(--error)',
-                    marginTop: '0.25rem'
-                  }}
+                  component={StyledErrorMessage}
                 />
               </div>
 
@@ -149,12 +154,7 @@ const SignUp = () => {
                 />
                 <ErrorMessage
                   name="name"
-                  component="div"
-                  style={{
-                    fontSize: '0.875rem',
-                    color: 'var(--error)',
-                    marginTop: '0.25rem'
-                  }}
+                  component={StyledErrorMessage}
                 />
               </div>
 
@@ -176,12 +176,7 @@ const SignUp = () => {
                 />
                 <ErrorMessage
                   name="password"
-                  component="div"
-                  style={{
-                    fontSize: '0.875rem',
-                    color: 'var(--error)',
-                    marginTop: '0.25rem'
-                  }}
+                  component={StyledErrorMessage}
                 />
               </div>
 
@@ -203,12 +198,7 @@ const SignUp = () => {
                 />
                 <ErrorMessage
                   name="passwordConfirm"
-                  component="div"
-                  style={{
-                    fontSize: '0.875rem',
-                    color: 'var(--error)',
-                    marginTop: '0.25rem'
-                  }}
+                  component={StyledErrorMessage}
                 />
               </div>
 
