@@ -481,6 +481,14 @@ body {
   box-shadow: 0 4px 16px rgba(31, 38, 135, 0.15);
 }
 
+/* Active Navigation Link Styles */
+.active-nav-link {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  color: white !important;
+  font-weight: 600 !important;
+}
+
 .glass-dropdown {
   background: rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(25px);

@@ -11,7 +11,7 @@ const NavbarTab = ({ href, name }: IProps) => {
   return (
     <>
       {/* Desktop NavbarTab */}
-      <ActiveLink href={href}>
+      <ActiveLink href={href} activeClassName="active-nav-link">
         <a style={{
           display: 'none',
           alignItems: 'center',
@@ -40,7 +40,7 @@ const NavbarTab = ({ href, name }: IProps) => {
       </ActiveLink>
       
       {/* Mobile NavbarTab */}
-      <ActiveLink href={href}>
+      <ActiveLink href={href} activeClassName="active-nav-link">
         <a style={{
           display: 'block',
           padding: '0.75rem 1rem',
