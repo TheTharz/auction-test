@@ -20,7 +20,7 @@ const NavbarTab = ({ href, name }: IProps) => {
           color: 'rgba(255, 255, 255, 0.9)',
           textDecoration: 'none',
           fontSize: '0.875rem',
-          fontWeight: '500',
+          fontWeight: 500,
           transition: 'all 0.3s ease',
           border: '1px solid transparent'
         }}
@@ -48,7 +48,7 @@ const NavbarTab = ({ href, name }: IProps) => {
           color: 'rgba(255, 255, 255, 0.9)',
           textDecoration: 'none',
           fontSize: '1rem',
-          fontWeight: '500',
+          fontWeight: 500,
           transition: 'all 0.3s ease',
           border: '1px solid transparent'
         }}

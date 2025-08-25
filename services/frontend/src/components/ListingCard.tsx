@@ -84,7 +84,7 @@ const ListingCard = ({ name, price, slug, smallImage, expiresAt }: IProps) => {
                 color: 'var(--text-accent)',
                 fontSize: '0.875rem',
                 marginBottom: '1rem',
-                fontWeight: '500'
+                fontWeight: 500
               }}>
                 <Countdown expiresAt={expiresAt} />
               </div>

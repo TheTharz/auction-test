@@ -28,7 +28,7 @@ const Footer = () => {
             style={{
               color: 'rgba(116, 235, 213, 0.9)',
               textDecoration: 'none',
-              fontWeight: '500',
+              fontWeight: 500,
               transition: 'color 0.3s ease'
             }}
             onMouseEnter={(e) => {

@@ -174,7 +174,7 @@ const Navbar = () => {
                   <div>
                     <div style={{
                       fontSize: '1rem',
-                      fontWeight: '500',
+                      fontWeight: 500,
                       color: 'white'
                     }}>
                       {currentUser.name}

@@ -97,7 +97,7 @@ const SignIn = () => {
                 <label style={{
                   display: 'block',
                   fontSize: '0.875rem',
-                  fontWeight: '500',
+                  fontWeight: 500,
                   color: 'var(--text-primary)',
                   marginBottom: '0.5rem'
                 }}>
@@ -124,7 +124,7 @@ const SignIn = () => {
                 <label style={{
                   display: 'block',
                   fontSize: '0.875rem',
-                  fontWeight: '500',
+                  fontWeight: 500,
                   color: 'var(--text-primary)',
                   marginBottom: '0.5rem'
                 }}>
