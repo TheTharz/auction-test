@@ -11,7 +11,7 @@ const Breadcrumb = ({ link, name }: IProps) => {
     <Link href={link}>
       <a style={{
         fontSize: '0.875rem',
-        fontWeight: '500',
+        fontWeight: 500,
         color: 'rgba(255, 255, 255, 0.7)',
         textDecoration: 'none',
         transition: 'color 0.3s ease'
