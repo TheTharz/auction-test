@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: email
-          image: jarrodm1234/auction-website-email
+          image: thetharz/auction-website-email
           env:
             - name: EMAIL
               valueFrom:

@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: expiration
-          image: jarrodm1234/auction-website-expiration
+          image: thetharz/auction-website-expiration
           env:
             - name: NATS_URL
               value: 'http://nats-srv:4222'

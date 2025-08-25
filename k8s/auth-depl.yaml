@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: auth
-          image: jarrodm1234/auction-website-auth
+          image: thetharz/auction-website-auth
           env:
             - name: JWT_KEY
               valueFrom:
