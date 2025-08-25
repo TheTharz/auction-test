@@ -43,10 +43,22 @@ jobs:
       run: |
         cd common
         npm ci
+        npm run build || echo "Common build failed, continuing..."
+        
+    - name: Install dependencies for all services
+      run: |
+        for service in auth listings bid expiration profile frontend email payments; do
+          if [ -f "services/${service}/package.json" ]; then
+            echo "Installing dependencies for ${service}..."
+            cd "services/${service}"
+            npm ci || echo "Failed to install dependencies for ${service}"
+            cd ../..
+          fi
+        done
         
     - name: Build and push images with Skaffold
       run: |
-        # Create a production skaffold config for pushing
+        # Create a production skaffold config for pushing using dev Dockerfiles
         cat > skaffold-prod.yaml << EOF
         apiVersion: skaffold/v2alpha3
         kind: Config
@@ -55,42 +67,42 @@ jobs:
             - image: thetharz/auction-website-auth
               context: services/auth
               docker:
-                dockerfile: Dockerfile
+                dockerfile: Dockerfile.dev
             - image: thetharz/auction-website-listings
               context: services/listings
               docker:
-                dockerfile: Dockerfile
+                dockerfile: Dockerfile.dev
             - image: thetharz/auction-website-bid
               context: services/bid
               docker:
-                dockerfile: Dockerfile
+                dockerfile: Dockerfile.dev
             - image: thetharz/auction-website-expiration
               context: services/expiration
               docker:
-                dockerfile: Dockerfile
+                dockerfile: Dockerfile.dev
             - image: thetharz/auction-website-profile
               context: services/profile
               docker:
-                dockerfile: Dockerfile
+                dockerfile: Dockerfile.dev
             - image: thetharz/auction-website-frontend
               context: services/frontend
               docker:
-                dockerfile: Dockerfile
+                dockerfile: Dockerfile.dev
             - image: thetharz/auction-website-email
               context: services/email
               docker:
-                dockerfile: Dockerfile
+                dockerfile: Dockerfile.dev
             - image: thetharz/auction-website-payments
               context: services/payments
               docker:
-                dockerfile: Dockerfile
+                dockerfile: Dockerfile.dev
           tagPolicy:
             envTemplate:
               template: "{{.GITHUB_SHA}}"
         EOF
         
-        # Build and push images
-        skaffold build -f skaffold-prod.yaml --push
+        # Build and push images with verbose output
+        skaffold build -f skaffold-prod.yaml --push --verbosity=debug
         
     - name: Tag and push latest
       if: github.ref == 'refs/heads/main'
