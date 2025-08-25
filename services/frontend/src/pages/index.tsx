@@ -33,7 +33,7 @@ const Home = () => {
             }}>
               <h1 style={{
                 fontSize: 'clamp(2.5rem, 5vw, 4rem)',
-                fontWeight: '800',
+                fontWeight: 800,
                 lineHeight: '1.1',
                 marginBottom: '1.5rem',
                 background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',

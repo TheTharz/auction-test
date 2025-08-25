@@ -219,7 +219,7 @@ const SignUp = () => {
                 style={{
                   width: '100%',
                   fontSize: '1rem',
-                  fontWeight: '600',
+                  fontWeight: 600,
                   opacity: isSigningUp ? 0.7 : 1,
                   cursor: isSigningUp ? 'not-allowed' : 'pointer'
                 }}

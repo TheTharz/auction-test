@@ -73,7 +73,7 @@ const ListingCard = ({ name, price, slug, smallImage, expiresAt }: IProps) => {
               <div style={{
                 color: 'var(--text-primary)',
                 fontSize: '1rem',
-                fontWeight: '600',
+                fontWeight: 600,
                 marginBottom: '0.5rem',
                 lineHeight: '1.4'
               }}>
@@ -92,7 +92,7 @@ const ListingCard = ({ name, price, slug, smallImage, expiresAt }: IProps) => {
               <div style={{
                 color: 'var(--text-primary)',
                 fontSize: '1.25rem',
-                fontWeight: '700',
+                fontWeight: 700,
                 background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',

@@ -154,7 +154,7 @@ const SignIn = () => {
                 style={{
                   width: '100%',
                   fontSize: '1rem',
-                  fontWeight: '600',
+                  fontWeight: 600,
                   opacity: isSigningIn ? 0.7 : 1,
                   cursor: isSigningIn ? 'not-allowed' : 'pointer'
                 }}
