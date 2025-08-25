@@ -10,22 +10,82 @@ interface IProps {
 const NavbarTab = ({ href, name }: IProps) => {
   return (
     <>
-      <ActiveLink
-        activeClassName="hidden lg:flex border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
-        href={href}
-      >
-        <a className="hidden lg:flex border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+      {/* Desktop NavbarTab */}
+      <ActiveLink href={href}>
+        <a style={{
+          display: 'none',
+          alignItems: 'center',
+          padding: '0.5rem 1rem',
+          borderRadius: '8px',
+          color: 'rgba(255, 255, 255, 0.9)',
+          textDecoration: 'none',
+          fontSize: '0.875rem',
+          fontWeight: '500',
+          transition: 'all 0.3s ease',
+          border: '1px solid transparent'
+        }}
+        className="desktop-nav-link"
+        onMouseEnter={(e) => {
+          e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)';
+          e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+          e.currentTarget.style.color = 'white';
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.background = 'transparent';
+          e.currentTarget.style.borderColor = 'transparent';
+          e.currentTarget.style.color = 'rgba(255, 255, 255, 0.9)';
+        }}>
           {name}
         </a>
       </ActiveLink>
-      <ActiveLink
-        activeClassName="lg:hidden bg-indigo-50 border-indigo-500 text-indigo-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
-        href={href}
-      >
-        <a className="lg:hidden border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
+      
+      {/* Mobile NavbarTab */}
+      <ActiveLink href={href}>
+        <a style={{
+          display: 'block',
+          padding: '0.75rem 1rem',
+          borderRadius: '8px',
+          color: 'rgba(255, 255, 255, 0.9)',
+          textDecoration: 'none',
+          fontSize: '1rem',
+          fontWeight: '500',
+          transition: 'all 0.3s ease',
+          border: '1px solid transparent'
+        }}
+        className="mobile-nav-link"
+        onMouseEnter={(e) => {
+          e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)';
+          e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+          e.currentTarget.style.color = 'white';
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.background = 'transparent';
+          e.currentTarget.style.borderColor = 'transparent';
+          e.currentTarget.style.color = 'rgba(255, 255, 255, 0.9)';
+        }}>
           {name}
         </a>
       </ActiveLink>
+
+      <style jsx>{`
+        @media (min-width: 768px) {
+          .desktop-nav-link {
+            display: flex !important;
+          }
+          .mobile-nav-link {
+            display: none !important;
+          }
+        }
+        
+        @media (max-width: 767px) {
+          .desktop-nav-link {
+            display: none !important;
+          }
+          .mobile-nav-link {
+            display: block !important;
+          }
+        }
+      `}</style>
     </>
   );
 };

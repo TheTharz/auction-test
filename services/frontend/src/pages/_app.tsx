@@ -2,23 +2,14 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import '../styles/globals.css';
 
-import styled from '@emotion/styled';
 import type { AppProps } from 'next/app';
 import React, { useState } from 'react';
 import { ToastContainer } from 'react-toastify';
-import xw from 'xwind/macro';
 
 import buildClient from '../api/base-client';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import AppContext from '../context/app-context';
-
-const StyledMyApp = styled.div(xw`
-    flex 
-    flex-col 
-    h-screen 
-    justify-between
-`);
 
 interface IProps extends AppProps {
   currentUser: any;
@@ -37,11 +28,22 @@ const MyApp = ({ Component, pageProps, currentUser }: IProps) => {
         setAuth,
       }}
     >
-      <StyledMyApp>
+      <div style={{
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: '100vh',
+        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+        backgroundAttachment: 'fixed'
+      }}>
         <Navbar />
-        <div className="container mb-auto mx-auto max-w-7xl px-2 sm:px-4 lg:px-8">
-          <Component {...pageProps} />
-        </div>
+        <main style={{
+          flex: '1',
+          padding: '2rem 0'
+        }}>
+          <div className="container">
+            <Component {...pageProps} />
+          </div>
+        </main>
         <Footer />
         <ToastContainer
           position="bottom-left"
@@ -53,8 +55,9 @@ const MyApp = ({ Component, pageProps, currentUser }: IProps) => {
           pauseOnFocusLoss
           draggable
           pauseOnHover
+          toastClassName="glass-toast"
         />
-      </StyledMyApp>
+      </div>
     </AppContext.Provider>
   );
 };
