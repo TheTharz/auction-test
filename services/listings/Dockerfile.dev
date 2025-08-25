@@ -1,0 +1,13 @@
+# services/auth/Dockerfile.dev (and similar for other services)
+FROM node:18-alpine
+
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+
+# Add these lines to fix TypeScript issues
+RUN npm install -g ts-node-dev@latest
+RUN npm install typescript@latest ts-node@latest
+
+COPY . .
+CMD ["npm", "run", "dev"]
