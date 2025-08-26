@@ -5,15 +5,22 @@ metadata:
   namespace: datadog
 spec:
   global:
-    clusterName: auction-site-cluster
     site: us5.datadoghq.com
-    credentials:
-      apiSecret:
-        secretName: datadog-secret
-        keyName: api-key
-      appSecret:
-        secretName: datadog-secret
-        keyName: app-key
+    clusterName: auction-site-cluster
+    registry: gcr.io/datadoghq
+  agent:
+    image:
+      name: agent
+      tag: 7.47.0    # >=7.40.0 for K8s v1.25+, safe choice
+  clusterAgent:
+    image:
+      name: cluster-agent
+      tag: 7.47.0    # >=1.18.0, >=7.40.0 for K8s v1.25+
+    config:
+      orchestratorExplorer:
+        enabled: true
   features:
-    orchestratorExplorer:
+    logCollection:
+      enabled: true
+    apm:
       enabled: true
