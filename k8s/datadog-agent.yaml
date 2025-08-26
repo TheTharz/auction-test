@@ -15,17 +15,10 @@ spec:
         secretName: datadog-secret
         keyName: app-key
     registry: gcr.io/datadoghq
-  agent:
-    image:
-      name: agent
-  clusterAgent:
-    image:
-      name: cluster-agent
-    config:
-      orchestratorExplorer:
-        enabled: true
   features:
     logCollection:
       enabled: true
     apm:
+      enabled: true
+    orchestratorExplorer:
       enabled: true
