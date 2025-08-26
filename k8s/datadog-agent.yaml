@@ -5,8 +5,15 @@ metadata:
   namespace: datadog
 spec:
   global:
-    site: us5.datadoghq.com
     clusterName: auction-site-cluster
+    site: us5.datadoghq.com
+    credentials:
+      apiSecret:
+        secretName: datadog-secret
+        keyName: api-key
+      appSecret:
+        secretName: datadog-secret
+        keyName: app-key
     registry: gcr.io/datadoghq
   agent:
     image:
