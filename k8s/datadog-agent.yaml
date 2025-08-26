@@ -18,11 +18,9 @@ spec:
   agent:
     image:
       name: agent
-      tag: 7.47.0    # >=7.40.0 for K8s v1.25+, safe choice
   clusterAgent:
     image:
       name: cluster-agent
-      tag: 7.47.0    # >=1.18.0, >=7.40.0 for K8s v1.25+
     config:
       orchestratorExplorer:
         enabled: true
